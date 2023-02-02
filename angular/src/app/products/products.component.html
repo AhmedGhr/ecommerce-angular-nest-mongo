@@ -1,0 +1,110 @@
+<style>
+    .card-product .img-wrap {
+        border-radius: 3px 3px 0 0;
+        overflow: hidden;
+        position: relative;
+        height: 220px;
+        text-align: center;
+    }
+    .card-product .img-wrap img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+    .card-product .info-wrap {
+        overflow: hidden;
+        padding: 15px;
+        border-top: 1px solid #eee;
+    }
+    .card-product .bottom-wrap {
+        padding: 15px;
+        border-top: 1px solid #eee;
+    }
+    
+    .label-rating { margin-right:10px;
+        color: #333;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .card-product .price-old {
+        color: #999;
+    }
+    
+    </style>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container">
+    
+<br> 
+
+<h2 class="text-center"><marquee behavior="scroll" direction="left">Welcome to Gharmoul Shop ... Have fun finding the best prices on the market!</marquee>
+</h2>
+<hr>
+
+<ngb-carousel class="col-md-12 mb-4" style="left: 65px;width: fit-content;" *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/samsung.png" alt="Random first slide">
+      </div>
+      
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/iphone.png" alt="Random second slide">
+      </div>
+   
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/xiamoioioi.png" alt="Random third slide">
+      </div>
+    
+    </ng-template>
+  </ngb-carousel>
+
+
+
+<div class="col-md-12 mb-4 input-group">
+<input class ="form-control" placeholder="search" (keyup)="search($event.target.value)"> 
+<div class="input-group-append">
+    <select class="form-select" (change)="sort($event.target.value)">
+        <option>Select</option>
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+
+
+    </select>
+</div>
+
+
+</div>
+<div class="row" >
+<div class="col-md-4" *ngFor="let product of products"   >
+	<figure class="card card-product" >
+		<div class="img-wrap"><img src="{{'../../assets/'+product.image.slice(12)}}" ><a routerLink="/productdetail"></a></div>
+		<figcaption class="info-wrap">
+				<h4 class="title">{{product.title}}</h4>
+				<p class="desc">{{product.description}}</p>
+				
+		</figcaption>
+		<div class="bottom-wrap">
+			<button   style="margin-left: 10px;" (click)="addtocart(product)" class="btn btn-sm btn-success float-right" [disabled]="product.contributor === id">Add to cart</button> &nbsp;	
+            
+            <button routerLink="/productdetail" (click)="setProduct(product)" class="btn btn-sm btn-info float-right">Detail</button>	
+
+            <div class="price-wrap h5">
+				<span class="price-new">{{product.price}} TND</span> 
+			</div> <!-- price-wrap.// -->
+		</div> <!-- bottom-wrap.// -->
+	</figure>
+</div> <!-- col // -->
+<div class="d-flex justify-content-center mt-4" *ngIf="filter.page<lastPage">
+    <button class="btn btn-primary" (click)="loadMore()">Loead More</button>
+  </div>
+</div> <!-- row.// -->
+
+
+
+</div> 

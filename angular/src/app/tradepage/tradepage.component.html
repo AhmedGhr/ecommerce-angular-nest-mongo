@@ -1,0 +1,53 @@
+
+
+<form [formGroup]= "form"   class="form-signin">
+    
+    <h1 class="h3 mb-3 fw-normal">Trade Product</h1>
+
+
+    <div class="form-group">
+     
+        <label for="floatingInput">Product to trade</label>
+
+        <input  formControlName="title" type="text" class="form-control" id="floatingInput" placeholder="Samsung" value="{{productToTrade}}">
+        
+      </div>
+      <label for="floatingInput">Your product</label>
+        <select  formControlName="type" class="form-control" id="floatingInput" placeholder="Ahmed Gharmoul">
+        <option value="phone"> Phone</option>
+        <option value="phone">Clothes</option>
+        </select>
+        
+      
+
+    <div class="form-group">
+        <label for="floatingInput">Description</label>
+      <input formControlName="description" type="text-area" class="form-control" id="floatingInput" value="" placeholder="name@example.com">
+      
+    </div>
+    
+    <div class="form-group">
+        <label for="floatingInput">Phone Number</label>
+        <input formControlName="price"  type="number" class="form-control" id="floatingInput" placeholder="55935796" value="">
+       
+      </div>
+
+      <div class="form-group">
+        <label for="floatingInput">image</label>
+        <input formControlName="image"  type="file" class="form-control" id="floatingInput" placeholder="55935796" value="">
+       
+      </div>
+      <br>
+      
+
+      
+
+     
+        
+     
+  
+
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Aplly changes</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  </form>

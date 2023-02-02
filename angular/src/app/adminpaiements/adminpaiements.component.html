@@ -1,0 +1,148 @@
+
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+    
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    </style>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <div class="container-fluid">
+        <div class="row">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#">
+                    <span data-feather="home"></span>
+                   <h2>Dashboard</h2> 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/admin">
+                    <span data-feather="file"></span>
+                    Users
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " routerLink="/adminproduct">
+                    <span data-feather="shopping-cart"></span>
+                    Products
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" routerLink="/admin/paiements">
+                    <span data-feather="users"></span>
+                    Transactions
+                  </a>
+                </li>
+               
+                
+              </ul>
+      
+             
+            
+            </div>
+          </nav>
+      
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Admin Dashboard</h1>
+              
+            </div>
+      
+      
+            <h2>Transactions</h2>
+            <div class="table-responsive">
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                <div>
+                    <table class="table align-items-center">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">#</th>
+                                <th scope="col" class="sort" data-sort="budget">Paiment ID</th>
+                                <th scope="col" class="sort" data-sort="status">Contributor ID</th>
+                                <th scope="col" class="sort" data-sort="status">Date</th>
+                                <th scope="col">Total Price</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody class="list" *ngFor="let paiement of paiements ;let index = index">
+                            
+                            <tr>
+                                <th scope="row" >
+                                   {{index+1}} 
+                                </th>
+                                <td class="budget">
+                                    {{paiement['id']}}
+                                </td>
+                                <td>
+                                    {{paiement['contributor']}}
+                                </td>
+
+                                <td>
+                                    {{paiement['date']}}
+                                </td>
+                                <td>
+                                    
+                                        {{paiement['price']}}
+                                        
+                
+                
+                                </td>
+                            
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                           
+                            <!-- Edit Modal -->
+    
+                        
+                
+                    </tbody>
+                    
+                </table>
+               
+            </div>
+            
+            </div>
+    
+            
+          </main>
+          
+        </div>
+        
+      </div>
+      
